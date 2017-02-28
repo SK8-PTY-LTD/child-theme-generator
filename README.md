@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ##### Child Theme Setup #####
 Contributor: Serafino Corriero
 
@@ -43,4 +42,3 @@ The plugin has created three files: functions.php, screenshot.png, style.css
 =======
 # child-theme-generator
 Create a WordPress child-theme from parent-theme
->>>>>>> a3d62e5547bb48a3fb5ea590a72b74e0870078a2
