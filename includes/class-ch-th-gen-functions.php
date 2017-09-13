@@ -99,17 +99,17 @@ class Ch_Th_Gen_Functions {
 					</tr>
 					<tr>
 						<td class="FBLabel"><?php esc_html_e('Author:', 'ch-th-gen'); ?></td>
-						<td class="FBInput"><input type="text" name="author" value="<?php echo $current_user->display_name; ?>"></td>
+						<td class="FBInput"><input type="text" name="author" value="<?php echo "SK8Tech" ?>"></td>
 						<td class="FBDescr"><?php esc_html_e(" Enter your name/nickname", "ch-th-gen") ?></td>
 					</tr>
 					<tr>
 						<td class="FBLabel"><?php esc_html_e('Author URL:', 'ch-th-gen'); ?></td>
-						<td class="FBInput"><input type="text" name="author-url" value="<?php echo $current_user->user_url; ?>"></td>
+						<td class="FBInput"><input type="text" name="author-url" value="<?php echo "https://sk8.tech/" ?>"></td>
 						<td class="FBDescr"><?php esc_html_e(" Enter your blog/website Home Page", "ch-th-gen") ?></td>
 					</tr>
 					<tr>
 						<td class="FBLabel"><?php esc_html_e('Version:', 'ch-th-gen'); ?></td>
-						<td class="FBInput"><input type="text" name="version" value="1.0"></td>
+						<td class="FBInput"><input type="text" name="version" value="1.0.0"></td>
 						<td class="FBDescr"><?php esc_html_e(" Early version, usually 1.0", "ch-th-gen") ?></td>
 					</tr>
 					<tr>
