@@ -5,6 +5,7 @@ Tags: child-theme
 
 Requires at least: 4.5
 
+
 Tested up to: 4.6.1
 
 **Description**
