@@ -2,10 +2,6 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 
  .handle {
  	font-size: 1.1em;
@@ -46,18 +42,7 @@
  }
  .FBInput{
  	float: left;
-<<<<<<< HEAD
- 	width:12em;	
- }
- .FBDescr {
- 	font-style: italic;
- 	width: 30em;
- 	float: left;
- 	margin: 0 0 0 6em;
- }
-
-=======
- 	width:14em;	
+ 	width:15em;	
  }
  .FBDescr {
  	font-style: italic;
@@ -65,7 +50,6 @@
  	width: 30em;
  	float: left;
  }
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
  #mc_embed_signup form {
  	padding: 1.2em 0 0 0 !important;
  }
@@ -82,51 +66,3 @@
  	float:left; 
  	padding: 0 0.8em;
  }
-<<<<<<< HEAD
-=======
-=======
-.handle {
-	font-size: 1.1em;
-	line-height: 1.3em;
-	padding-left: 0.6em;
-	font-style: italic;
-}
-.pad1 {
-	padding: 0 1em;
-}
-.submit {
-	padding: 0em;
-}
-.error {
-	background: white;
-	padding: 0.7em;
-}
-.warning {
-	border-left: 4px solid #dc3232; 
-	padding: 0 1em;
-	text-align: left;
-	line-height: 3em;
-	font-size: 1.1em;
-	font-weight: 700;
-	margin-top: 0.16em;
-}
-#confirm {
-	display: none;
-}
-.FBLabel, .FBInput {
-    display:block;
-    float:left;
-    margin-bottom:0.8em;
-}
-.FBInput {
-	width:14em;	
-}
-.FBLabel {
-	width:10em;
-}
-.descr {
-	font-style: italic;
-	padding: 0 0 0 1em;
-}
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af

@@ -33,21 +33,9 @@ class Ch_Th_Gen_Functions {
 		$running_theme = wp_get_theme();
 		$add_child_string = "";
 		if ($running_theme->parent() == true) {
-<<<<<<< HEAD
 			$add_child_string = " (" . $running_theme->parent() . " child theme)" ;
 		}
 		return esc_html( $running_theme->get( 'Name' ) ) . " - ver. " . esc_html( $running_theme->get( 'Version' ) ) . $add_child_string ;
-=======
-<<<<<<< HEAD
-			$add_child_string = " (" . $running_theme->parent() . " child theme)" ;
-		}
-		return esc_html( $running_theme->get( 'Name' ) ) . " - ver. " . esc_html( $running_theme->get( 'Version' ) ) . $add_child_string ;
-=======
-			$add_child_string = " a " . $running_theme->parent() . " child-theme" ;
-		}
-		return esc_html( $running_theme->get( 'Name' ) ) . " (ver. " . esc_html( $running_theme->get( 'Version' ) ) .") $add_child_string" ;
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 	}
 
 	/**
@@ -60,30 +48,13 @@ class Ch_Th_Gen_Functions {
 		$parent_themes = self::get_parent_themes();
 		$runningTheme = wp_get_theme();
 		$current_user = wp_get_current_user();
-<<<<<<< HEAD
 		printf( esc_html__('%1$s Create a child theme from a parent-theme %2$s', 'ch-th-gen'), '<h3>', '</h3>');
 		printf( esc_html__('Theme active: %1$s %2$s', 'ch-th-gen'), self::display_current_theme(), '</p><hr />');
 		printf( esc_html__('%1$s Select a parent theme from drop-down menu, then fill out the form (Note: %2$s all fields are optional) %3$s', 'ch-th-gen'), '<p>', '<u>', '</u></p>');
-=======
-<<<<<<< HEAD
-		printf( esc_html__('%1$s Create a child theme from a parent-theme %2$s', 'ch-th-gen'), '<h3>', '</h3>');
-		printf( esc_html__('Theme active: %1$s %2$s', 'ch-th-gen'), self::display_current_theme(), '</p><hr />');
-		printf( esc_html__('%1$s Select a parent theme from drop-down menu, then fill out the form (Note: %2$s all fields are optional) %3$s', 'ch-th-gen'), '<p>', '<u>', '</u></p>');
-=======
-		echo "<h3>" . __("Create a child-theme from a parent-theme", "ch-th-gen") . "</h3>";
-		echo __("Theme active: <b>", "ch-th-gen") . self::display_current_theme()  . " </b></p>";
-		echo "<hr />";
-		echo "<p>"  . __("Select a parent theme from drop-down menu, then fill out the form (Note: <u>all fields are optional</u>)", "ch-th-gen") . "<br />" ;
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 		?>
 		<form method="post" action="" >
 			<input type="hidden" name="hidden_field" value="Y">
 			<fieldset>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 				<table>
 					<tr>
 						<td class="FBLabel">Parent theme:</td>
@@ -205,120 +176,6 @@ class Ch_Th_Gen_Functions {
 				echo '</em></p>';
 			}
 		}
-<<<<<<< HEAD
-=======
-=======
-				<ul>
-					<li>
-					<label class="FBLabel" for="parent">Parent theme: </label>
-						<select name="parent">
-							<?php
-							// array_push( $parent_themes, "-- Select an item --" );
-							foreach ($parent_themes as $key => $value) {
-									// if it's the current theme, make it selected
-								if ($runningTheme->get('Name') == $parent_themes[$key]->get('Name')) {
-									?>
-									<option class="FBInput" value="<?php echo $parent_themes[$key]->get_stylesheet(); ?>" selected="selected">
-										<?php echo $parent_themes[$key] . __(" (Active)", "ch-th-gen"); ?>
-									</option>
-									<?php
-								}
-								else {
-									?>
-									<option class="FBInput" value="<?php echo $parent_themes[$key]->get_stylesheet() ?>"><?php echo $parent_themes[$key] ?></option>
-									<?php
-								}
-							}
-							?>
-						</select>
-						<span class="descr"><?php echo __(" Select a theme from drop-down menu (mandatory)", "ch-th-gen"); ?></span>
-					</li>
-					<li>
-						<label class="FBLabel" for="title">Heading:</label> 
-						<input type="text" id="title" name="title" value="" size="25">
-						<span class="descr"><?php echo __(" Write an easy title to remember (i.e. 'The Green Giants')", "ch-th-gen") ?></span>
-					</li>
-					<li>
-						<label class="FBLabel" for="description">Description: </label>
-						<input type="text" name="description" value="" size="25">
-						<span class="descr"><?php echo __(" Write a sentence about your job (i.e. 'Few tweaks to my baseball website')", "ch-th-gen") ?></span>
-					</li>
-					<li>
-						<label class="FBLabel" for="url">Child Theme URL: </label>
-						<input type="text" name="url" value=""  size="25">
-						<span class="descr"><?php echo __(" Enter the URL where to find out more (i.e. link to your article or post)", "ch-th-gen") ?></span>
-					</li>
-					<li>
-						<label class="FBLabel" for="author">Author: </label>
-						<input type="text" name="author" value="<?php echo $current_user->display_name; ?>" size="25">
-						<span class="descr"><?php echo __(" Enter your name/nickname", "ch-th-gen") ?></span>
-					</li>
-					<li>
-						<label class="FBLabel" for="author-url">Author URL: </label>
-						<input type="text" name="author-url" value="<?php echo $current_user->user_url; ?>" size="25">
-						<span class="descr"><?php echo __(" Enter your blog/website Home Page", "ch-th-gen") ?></span>
-					</li>
-					<li>
-						<label class="FBLabel" for="version">Version: </label>
-						<input type="text" name="version" value="1.0" size="25">
-						<span class="descr"><?php echo __(" Early version, usually 1.0", "ch-th-gen") ?></span>
-					</li>
-					<li>
-					<label class="FBLabel" for="include-gpl">Include GPL License</label>
-						<select name="include-gpl">
-							<option class="FBInput" value="Yes">Yes</option>
-							<option class="FBInput" value="No">No</option>
-						</select>
-						<span class="descr"><?php echo __(" Include the General Public License. ", "ch-th-gen") . '<a href="https://en.wikipedia.org/wiki/GNU_General_Public_License" target= "_blank">Learn more</a>'; ?></span>
-					</li>
-				</ul>
-				<br />
-				<input type="submit" name="Submit" class="button-primary" value="<?php echo __('Create it!', 'ch-th-gen'); ?>" />		
-			</fieldset>
-		</form>
-		<?php
-		return $new_child_theme;
-	}
-
-	public function remove_child_theme() {
-
-		$child_themes = self::get_child_themes();
-		if ( !empty( $child_themes ) ) {
-			echo "<h4 class='warning'>" . __("It's STRONGLY recommended to backup your files before continue, all deleted files will be lost!", "ch-th-gen") . "<br /></h4>";
-			$parent_themes = self::get_parent_themes();
-			echo "<h3>" . __("Remove a child-theme and it will switch to its parent-theme", "ch-th-gen") . "</h3>";
-			echo "<p>"  . __("Active theme: ", "ch-th-gen") . "<b>" . self::display_current_theme() . ".</b>";
-			?>
-			<form method='post' action=''>
-				<?php
-				// <input type="hidden" name="hidden_remove" value="Y">
-				// building child-theme list
-				echo  __("Click on radio button to choice one child-theme, then, click on 'Remove' button to delete it ", "ch-th-gen");
-
-				foreach ($child_themes as $key => $content) {
-					?>
-					<p><input type="radio" name="folder_to_remove" value="<?php echo $child_themes[$key]->get_stylesheet(); ?>">
-						<?php echo "<b>" . $content . "</b> (a " . $child_themes[$key]->get_template() . " child-theme)<br />"; ?>
-					</input>
-					<input type="hidden" name="parent_to_restore" value="<?php echo $child_themes[$key]->get_template(); ?>"></p>
-					<?php
-				}
-				?>
-				<div id="remove" class="button-primary">
-					<?php echo __(' Remove ', 'ch-th-gen'); ?>
-				</div>
-				<div id="confirm">
-					<?php echo __('Are you really sure? ', 'ch-th-gen'); ?>	
-					<input type="submit" class="button-primary" name="btn-confirm-remove"  value="<?php echo __(' Confirm ', 'ch-th-gen'); ?>" />
-				</div>
-			</form>
-			<?php
-		} else {
-			echo "<p><em>" . __("No child-theme detected", "ch-th-gen") . "</em></p>";
-		}
-	}
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 
 	/**
 	 * Remove files and themes' folder
@@ -333,10 +190,6 @@ class Ch_Th_Gen_Functions {
 			foreach( $files_to_remove as $content ) {
 				if( is_file( $content) )
 		    	unlink( $content ); //delete file
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 		    $response[$content] = "<p><span class='dashicons dashicons-yes'></span>" . esc_html__("Deleting file ", "ch-th-gen") . "<b>$content</b> " . "</p>";
 		}
 		rmdir( $dir_to_remove);
@@ -345,19 +198,6 @@ class Ch_Th_Gen_Functions {
 		$response[$parent_to_restore] = "<p><span class='dashicons dashicons-yes'></span>" . esc_html__("Switching to ", "ch-th-gen") .  "<b>$parent_to_restore</b> theme" . "</p>";
 	} else {
 		$response[$folder_to_remove] = "<p><span class='dashicons dashicons-dismiss'> </span>" . esc_html__("Error deleting ", "ch-th-gen") . "<b>" . $folder_to_remove . ", </b> " . esc_html__("theme folder not found!", "ch-th-gen") . "</p>";
-<<<<<<< HEAD
-=======
-=======
-		    $response[$content] = "<p><span class='dashicons dashicons-yes'></span>" . __("Deleting file ", "ch-th-gen") . "<b>$content</b> " . "</p>";
-		}
-		rmdir( $dir_to_remove);
-		$response[$dir_to_remove] = "<p><span class='dashicons dashicons-yes'></span>". __("Deleting folder ", "ch-th-gen") . "<b>$dir_to_remove</b> " . "</p>";
-		switch_theme( $parent_to_restore );
-		$response[$parent_to_restore] = "<p><span class='dashicons dashicons-yes'></span>" . __("Switching to ", "ch-th-gen") .  "<b>$parent_to_restore</b> theme" . "</p>";
-	} else {
-		$response[$folder_to_remove] = "<p><span class='dashicons dashicons-dismiss'></span>" . __("Error deleting ", "ch-th-gen") . "<b>" . $folder_to_remove . " </b>, " . __(" theme folder not found!", "ch-th-gen") . "</p>";
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 		$response['alert'] = -1;
 	}
 	return $response;
@@ -415,32 +255,18 @@ class Ch_Th_Gen_Functions {
 		$child_name_dir=get_theme_root() . '/' . $new_child_theme['text-domain'];
 
 		if ( is_dir( $child_name_dir ) ) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['folder'] = 
 			"<p><span class='dashicons dashicons-dismiss'></span>"
 			. esc_html__("Error: cannot create ", "ch-th-gen") 
 			. "<b>" . $new_child_theme['text-domain'] . " </b>" . 
 			"child theme, " 
 			. esc_html__("existing folder.", "ch-th-gen") . "</p>" . 
-<<<<<<< HEAD
-=======
-=======
-			$results['folder'] = "<p><span class='dashicons dashicons-dismiss'></span>" . __("Error: Can't create <b>", "ch-th-gen") . $new_child_theme['text-domain'] . " </b>child-theme, " . __("existing folder.", "ch-th-gen") . "</p>" . 
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			"<p>" . $child_name_dir . "</p>";
 			$results['alert'] = -1;
 			return $results;
 		}
         // creating child folder
 		if ( wp_mkdir_p( $child_name_dir ) ) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['folder']= 
 			'<p><span class="dashicons dashicons-yes"></span>' 
 			. esc_html__('Writing ', 'ch-th-gen') 
@@ -452,15 +278,6 @@ class Ch_Th_Gen_Functions {
 			. '<b>' . $new_child_theme['text-domain'] .'</b> '
 			. esc_html__('This folder is read-only: ', 'ch-th-gen')
 			. $child_name_dir . '</p><br />';
-<<<<<<< HEAD
-=======
-=======
-			$results['folder']= "<p><span class='dashicons dashicons-yes'></span>" . __("Writing ", "ch-th-gen") . "<b>" . $new_child_theme['text-domain'] . '</b>' . __(" folder ", "ch-th-gen") . "</p>";
-		} else {
-			$results['folder']= "<p><span class='dashicons dashicons-dismiss'></span>" . __("Error: can't create <b>", "ch-th-gen") . $new_child_theme['text-domain'] .'</b> user '. $new_child_theme['author'] . __("does not have write access to this folder", "ch-th-gen") . "</p><br />" . 
-			$child_name_dir . 
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['alert'] = -1;
 			return $results;
 		}
@@ -502,12 +319,7 @@ class Ch_Th_Gen_Functions {
 		$style_css = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/style.css";
 
 		if (file_put_contents($style_css, $txt,  FILE_APPEND | LOCK_EX)) {
-<<<<<<< HEAD
-			chmod($style_css, 0777);
-=======
 			// chmod($style_css, 0777);
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['style'] = 
 			'<p><span class="dashicons dashicons-yes"></span>'
 			. esc_html__('Writing', 'ch-th-gen') 
@@ -517,15 +329,6 @@ class Ch_Th_Gen_Functions {
 			$results['style'] = 
 			'<p><span class="dashicons dashicons-dismiss"></span>'
 			. esc_html__('Error: cannot write style.css, permission denied', 'ch-th-gen') . '</p>';
-<<<<<<< HEAD
-=======
-=======
-			$results['style'] = "<p><span class='dashicons dashicons-yes'></span>" . __("Writing <b>style.css</b> ", "ch-th-gen") . "</p>";
-			return $results;
-		} else {
-			$results['style'] = "<p><span class='dashicons dashicons-dismiss'></span>" . __("Error: can't write style.css, permission denied", "ch-th-gen") . "</p>";
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['alert'] = -1;
 			return $results;
 		}
@@ -563,12 +366,7 @@ class Ch_Th_Gen_Functions {
 		$functions_php = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/functions.php";
 
 		if (file_put_contents($functions_php, $txt, FILE_APPEND | LOCK_EX)) {
-<<<<<<< HEAD
-			chmod($functions_php, 0777);
-=======
 			// chmod($functions_php, 0777);
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['functions'] = 
 			"<p><span class='dashicons dashicons-yes'></span>" 
 			. esc_html__("Writing ", "ch-th-gen")
@@ -578,15 +376,6 @@ class Ch_Th_Gen_Functions {
 			$results['functions'] = 
 			"<p><span class='dashicons dashicons-dismiss'></span>"
 			. esc_html__("Error: cannot write functions.php, permission denied", "ch-th-gen") . "</p>";
-<<<<<<< HEAD
-=======
-=======
-			$results['functions'] = "<p><span class='dashicons dashicons-yes'></span>" . __("Writing <b>functions.php</b> ", "ch-th-gen") . "</p>";
-			return $results;
-		} else {
-			$results['functions'] = "<p><span class='dashicons dashicons-dismiss'></span>"  . __("Error: can't write functions.php, permission denied", "ch-th-gen") . "</p>";
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['alert'] = -1;
 			return $results;
 		}
@@ -601,30 +390,12 @@ class Ch_Th_Gen_Functions {
 	public function create_screenshot_png( $new_child_theme, $results ) {
 
 		// check parent-name's screenshot.png
-<<<<<<< HEAD
 		$parent_screenshot = WP_PLUGIN_DIR . '/child-theme-generator/admin/img/screenshot.png';
-=======
-<<<<<<< HEAD
-		$parent_screenshot = WP_PLUGIN_DIR . '/ch-th-gen/admin/img/screenshot.png';
-=======
-		$parent_screenshot = get_theme_root() . '/' . $new_child_theme['parent'] . '/screenshot.png';
-		if ( is_file( $parent_screenshot ) ) {
-			$results['screenshot_parent'] = "<p><span class='dashicons dashicons-yes'></span>" . __("Found <em>screenshot.png</em> in " . $new_child_theme['parent'] . " directory, this file will be used.", "ch-th-gen") . "</p>";
-		} else {
-			$parent_screenshot = WP_PLUGIN_DIR . '/ch-th-gen/admin/img/screenshot.png';
-			$results['screenshot_parent'] = "<p>" . __("Missing <em>screenshot.png</em> in " . $new_child_theme['parent'] ." directory, a plugin's image will be used." , "ch-th-gen") . "</p>";			
-		}
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 
 		// child-name's screenshot.png path
 		$child_screenshot_path = get_theme_root() . '/' . $new_child_theme['text-domain'] . '/screenshot.png';
 		// Set Path to Font File
-<<<<<<< HEAD
 		$font_path = WP_PLUGIN_DIR . '/child-theme-generator/admin/fonts/OpenSans/OpenSans-Regular.ttf';
-=======
-		$font_path = WP_PLUGIN_DIR . '/ch-th-gen/admin/fonts/OpenSans/OpenSans-Regular.ttf';
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 
 		// Create Image From Existing File
 		$png_image = imagecreatefrompng($parent_screenshot);
@@ -680,12 +451,7 @@ class Ch_Th_Gen_Functions {
 
 			imagedestroy( $png_image ); // Clear Memory
 
-<<<<<<< HEAD
-			chmod( $png_image, 0777 );
-=======
 			// chmod( $png_image, 0777 );
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['screenshot'] = 
 			"<p><span class='dashicons dashicons-yes'></span>" 
 			. esc_html__('Writing ', 'ch-th-gen') 
@@ -696,16 +462,6 @@ class Ch_Th_Gen_Functions {
 			$results['screenshot'] = 
 			"<p><span class='dashicons dashicons-dismiss'></span>" 
 			. esc_html__('Error: cannot write screenshot.png, permission denied', 'ch-th-gen') .'</p>';
-<<<<<<< HEAD
-=======
-=======
-			$results['screenshot'] = "<p><span class='dashicons dashicons-yes'></span>" . __("Writing <b>screenshot.png</b> ", "ch-th-gen") . "<br /></p>";
-			return $results; 	
-		} else {
-
-			$results['screenshot'] = "<p><span class='dashicons dashicons-dismiss'></span>" . __("Error: can't write <em>screenshot.png</em>, permission denied", "ch-th-gen") ."</p>";
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			$results['alert'] = -1;
 			return $results;
 		}

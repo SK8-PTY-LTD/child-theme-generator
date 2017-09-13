@@ -61,16 +61,6 @@ class Ch_Th_Gen_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
-		$this->plugin_settings_tabs['create'] = 'Create';
-		$this->plugin_settings_tabs['remove'] = 'Remove';
-
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 	}
 
 	/**
@@ -124,15 +114,7 @@ class Ch_Th_Gen_Admin {
 	public function create_menu() {
 		add_submenu_page( 
 			'options-general.php', // parent-menu
-<<<<<<< HEAD
 			esc_html__('Child Themes Generator', 'ch-th-gen'), // $page_title:(string) (Required) The text to be displayed in the title tags of the page when the menu is selected.
-=======
-<<<<<<< HEAD
-			esc_html__('Child Themes Generator', 'ch-th-gen'), // $page_title:(string) (Required) The text to be displayed in the title tags of the page when the menu is selected.
-=======
-			'Child Themes Generator', // $page_title:(string) (Required) The text to be displayed in the title tags of the page when the menu is selected.
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 			'Child-Theme Gen', // $menu_title (string) (Required) The text to be used for the menu.
 			'manage_options', // $capability (string) (Required) The capability required for this menu to be displayed to the user.
 			$this->plugin_name, // $menu_slug (string) (Required) The slug name to refer to this menu by (should be unique for this menu).
@@ -226,16 +208,7 @@ class Ch_Th_Gen_Admin {
 					}
 					esc_html_e('Please correct before continue', 'ch-th-gen' );
 					?>
-<<<<<<< HEAD
 					<p><a class = 'button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=create'; ?>"><?php esc_html_e('Try again?', 'ch-th-gen'); ?></a></p>
-=======
-<<<<<<< HEAD
-					<p><a class = 'button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=create'; ?>"><?php esc_html_e('Try again?', 'ch-th-gen'); ?></a></p>
-=======
-					<p>Please correct the error(s) before continue</p>
-					<p><a class = 'button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=create'; ?>">Try again?</a></p>
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 				</div>
 				<?php
 			} else {
@@ -255,22 +228,9 @@ class Ch_Th_Gen_Admin {
 					?>
 					<form method="post" action="" >
 						<input type="hidden" name="hidden_switch" value="<?php echo $new_child_theme['text-domain']; ?>">
-<<<<<<< HEAD
 						<p><input type="checkbox" name="activate" value="yes"><?php esc_html_e("Activate", "ch-th-gen") . " <b>" . $new_child_theme['title'] . "</b>"?> child-theme? </p>
 						<p class="submit">
 							<input id="activate" type="submit" name="" class="button-primary" value="<?php esc_html_e('Finished', 'ch-th-gen'); ?>" /></p>
-=======
-<<<<<<< HEAD
-						<p><input type="checkbox" name="activate" value="yes"><?php esc_html_e("Activate", "ch-th-gen") . " <b>" . $new_child_theme['title'] . "</b>"?> child-theme? </p>
-						<p class="submit">
-							<input id="activate" type="submit" name="" class="button-primary" value="<?php esc_html_e('Finished', 'ch-th-gen'); ?>" /></p>
-=======
-						<input type="checkbox" name="activate" value="yes"><?php echo __("Activate <b>", "ch-th-gen") . $new_child_theme['title'] . "</b>"?> child-theme?
-						<p class="submit">
-							<input id="activate" type="submit" name="" class="button-primary" value="<?php echo __('Finished!', 'ch-th-gen'); ?>" />
-						</p>
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 					</form>
 				</div>				
 				<?php
@@ -292,10 +252,6 @@ class Ch_Th_Gen_Admin {
 			// show errors
 			if ( $response['alert'] == -1 ) {
 				echo "<div class='pad1'>";
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 				$err_count = 0;
 				foreach ($response as $steps => $message) {
 					if ($steps != 'alert') {
@@ -303,16 +259,6 @@ class Ch_Th_Gen_Admin {
 						esc_html_e('Please correct before continue', 'ch-th-gen');
 						?>
 						<p><a class = 'button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=remove'; ?>"><?php esc_html_e("Try again?", "ch-th-gen"); ?></a></p>
-<<<<<<< HEAD
-=======
-=======
-				foreach ($response as $steps => $message) {
-					if ($steps != 'alert') {
-						echo $response[$steps];
-						echo "<p>" . __("Please correct the error(s) before continue", "ch-th-gen") . "</p>"; ?>
-						<p><a class = 'button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=remove'; ?>">Try again?</a></p>
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 						<?php
 					}
 				}
@@ -325,25 +271,11 @@ class Ch_Th_Gen_Admin {
 						foreach ($response as $steps => $message) {
 							if ($steps != 'alert')
 								echo $response[$steps];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 						}
 						printf( esc_html__( 'Child Theme %1$s %2$s %3$s has been removed successfully!', 'ch-th-gen'), "<b>", $_POST[ 'folder_to_remove' ], "</b>");
 
 						?>
 						<p><a class='button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=remove'; ?>" ><?php esc_html_e(" Finished", "ch-th-gen"); ?> </a></p>
-<<<<<<< HEAD
-=======
-=======
-						} 
-						echo "<p>Child Theme <b>" . $_POST[ 'folder_to_remove' ] . "</b>" . __(" has been removed successfully!", "ch-th-gen") . "</p>";
-
-						?>
-						<p><a class='button-primary' href="<?php echo get_admin_url() . 'admin.php?page=ch-th-gen&tab=remove'; ?>" > Finished </a></p>
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 					</div>
 					<?php
 				}
@@ -359,18 +291,9 @@ class Ch_Th_Gen_Admin {
 	 * @return 		mixed 			The settings field
 	 */
 	public function ch_th_gen_render_tabs() {
-<<<<<<< HEAD
 		$plugin_settings_tabs['create'] = esc_html__('Create New', 'ch-th-gen');
 		$plugin_settings_tabs['remove'] = esc_html__('Remove Child Theme', 'ch-th-gen');
 		
-=======
-<<<<<<< HEAD
-		$plugin_settings_tabs['create'] = esc_html__('Create New', 'ch-th-gen');
-		$plugin_settings_tabs['remove'] = esc_html__('Remove Child Theme', 'ch-th-gen');
-		
-=======
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 		$current_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'create';
 		echo '<h2 class="nav-tab-wrapper">';
 		foreach ( $plugin_settings_tabs as $tab_key => $tab_caption ) {

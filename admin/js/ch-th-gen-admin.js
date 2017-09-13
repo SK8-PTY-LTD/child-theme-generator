@@ -6,10 +6,6 @@ jQuery(document).ready(function( $ ) {
 	});
 
 	$( "div#confirm" ).click(function() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 		$( "div#confirm" ).hide();
 		$( "div#remove").show() ;
 	});
@@ -28,13 +24,4 @@ jQuery(document).ready(function( $ ) {
 			js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
 			fjs.parentNode.insertBefore(js,fjs);
 		}}(document, 'script', 'twitter-wjs');
-<<<<<<< HEAD
-=======
-=======
-	$( "div#confirm" ).hide();
-	$( "div#remove").show() ;
-	});
-
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 } );

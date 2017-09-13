@@ -29,10 +29,6 @@ flush_rewrite_rules();
 				<?php do_settings_sections(  $this->plugin_name ); ?>
 				<?php
 				// Detect if root theme folder is writable
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 				$theme_path=get_theme_root() . '/';
 				clearstatcache();
 				$perms_path=substr( sprintf( '%o', fileperms( $theme_path ) ), -4);
@@ -59,14 +55,6 @@ flush_rewrite_rules();
 				// If no tab or create
 				default: 
 				?>
-<<<<<<< HEAD
-=======
-=======
-				is_writable( get_theme_root() . '/' ) or die("<div class='error'><br /><span class='dashicons dashicons-dismiss'></span>" . __(" Theme root folder \"<b>", "ch-th-gen") . get_theme_root() . "/\"</b>" .  __(" is not writable.", "ch-th-gen") . "<br /><br />" . __("Tips: try to setup folder's permission to 'write' before continue.", "ch-th-gen") . "<br /><br /></div>");
-				switch ($tab):
-				case 'remove': ?>
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 				<div class="meta-box-sortables ui-sortable">
 					<div class="postbox ">
 						<div class="inside">
@@ -77,10 +65,6 @@ flush_rewrite_rules();
 				</div>
 				<?php
 				break;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 				endswitch ?>
 
 			</div>
@@ -90,11 +74,7 @@ flush_rewrite_rules();
 						<div class="inside">
 							<?php
 							printf( esc_html__('%1$s How to use this plugin %2$s', 'ch-th-gen'), '<h3>', '</h3>');
-<<<<<<< HEAD
 							$image_url= plugins_url() . '/child-theme-generator/admin/img/page1.png';
-=======
-							$image_url= plugins_url() . '/ch-th-gen/admin/img/page1.png';
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 							$post_link='http://www.serafinocorriero.it/child-theme-generator/';
 							echo "<a href=$post_link target='blank'><img src=$image_url alt='page-link' width='100%'></a>";
 							?>
@@ -121,7 +101,7 @@ flush_rewrite_rules();
 									<!-- WordPress Rating -->
 									<div style="float:left;">
 									<?php 
-									$star_url= plugins_url() . '/ch-th-gen/admin/img/star.png';
+									$star_url= plugins_url() . '/child-theme-generator/admin/img/star.png';
 									$review_link='https://wordpress.org/support/plugin/child-theme-generator/reviews/#plugin-info';									
 									echo "<a href=$review_link target='blank'><img src=$star_url alt='WordPress Reviews'></a><span class='star'>";
 									?>
@@ -175,53 +155,6 @@ flush_rewrite_rules();
 										<div class="clear"><input type="submit" value="<?php esc_html_e('Subscribe', 'ch-th-gen'); ?>" name="subscribe" id="mc-embedded-subscribe" class="button-primary"></div>
 									</div>
 								</form>
-<<<<<<< HEAD
-=======
-=======
-				// If no tab or create
-				default: 
-				?>
-				<div class="meta-box-sortables ui-sortable">
-					<div class="postbox ">
-						<div class="inside">
-							<?php $plugin_admin->section_create(); ?>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-				<?php
-				break;
-				endswitch ?>
-
-			</div>
-			<div id="postbox-container-1" class="postbox-container">
-				<div id="priority_side-sortables" class="meta-box-sortables ui-sortable">
-					<div id="itsec_security_updates" class="postbox ">
-						<h3 class="handle"><span>Keep in touch</span></h3>
-						<div class="inside">
-							<div id="mc_embed_signup">
-								<p>This plugins has been coded with the best practices, it will not slow down your website or spam your database.<br /><br />
-									Subscribe to get notificed once new plugin is out. No spam, just one mail per one new plugin.</p>
-
-									<!-- Begin MailChimp Signup Form -->
-									<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
-									<div id="mc_embed_signup">
-										<form action="//serafinocorriero.us14.list-manage.com/subscribe/post?u=36743ae007e3020c68fe9b2e1&amp;id=af9acf8548" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-											<div id="mc_embed_signup_scroll">
-												<label for="mce-EMAIL">Subscribe to our mailing list</label>
-												<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-												<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-												<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_36743ae007e3020c68fe9b2e1_af9acf8548" tabindex="-1" value=""></div>
-												<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button-primary"></div>
-											</div>
-										</form>
-									</div>
-
-									<!--End mc_embed_signup-->
-
-								</div>
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
 							</div>
 							<!--End mc_embed_signup-->
 						</div>
@@ -230,11 +163,4 @@ flush_rewrite_rules();
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
 </div>
-=======
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> 04e399c2bcd6db7fe597004f420b9535202b339a
->>>>>>> 5e247be19e9a3c5ea51d83d15bf2fb894ed9f9af
