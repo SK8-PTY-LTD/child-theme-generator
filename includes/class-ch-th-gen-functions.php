@@ -89,7 +89,7 @@ class Ch_Th_Gen_Functions {
 					</tr>
 					<tr>
 						<td class="FBLabel"><?php esc_html_e('Description:', 'ch-th-gen'); ?></td>
-						<td class="FBInput"><input type="text" name="description" value=""></td>
+						<td class="FBInput"><input type="text" name="description" value="This is a child theme created for"></td>
 						<td class="FBDescr"><?php esc_html_e(" Write a sentence about your job (i.e. 'Few tweaks to my baseball website')", "ch-th-gen") ?></td>
 					</tr>
 					<tr>
@@ -124,6 +124,11 @@ class Ch_Th_Gen_Functions {
 								<a href="https://en.wikipedia.org/wiki/GNU_General_Public_License" target= "_blank">
 									<?php esc_html_e('Click here to learn more', 'ch-th-gen'); ?></a></td>
 					</tr>
+                    <tr>
+                        <td class="FBLabel"><?php esc_html_e('Logo:', 'ch-th-gen'); ?></td>
+                        <td class="FBInput"><img src="" ></td>
+                        <td class="FBDescr"><?php esc_html_e(" Upload Image", "ch-th-gen") ?></td>
+                    </tr>
 				</table>
 				</fieldset>
 				<input type="submit" name="Submit" class="button-primary" value="<?php esc_html_e('Create new child theme', 'ch-th-gen'); ?>" />
@@ -285,10 +290,57 @@ class Ch_Th_Gen_Functions {
 		$results = self::create_style_css( $new_child_theme, $results );
 		$results = self::create_functions_php( $new_child_theme, $results );
 		$results = self::create_screenshot_png( $new_child_theme, $results );
-
+        $results = self::create_README_md( $new_child_theme, $results );
 		return $results;
 
 	}
+    /**
+     * Create README.md
+     *
+     * @since     1.0.0
+     * @return        mixed        The settings field
+     */
+    public function create_README_md( $new_child_theme, $results ) {
+        // README.md header content
+        $txt = "";
+        $txt .= "\n";
+        $txt .= "This is a template theme we use at [SK8Tech](https://sk8.tech). This document lists out the required steps to create a custom WordPress theme for our clients.\n";
+        $txt .= "\n\n";
+        $txt .= " ";
+        $txt .= "# functions.php\n";
+        $txt .= "1. Change **parentThemeDirectoryName** on to our selected parent theme.\n";
+        $txt .= "1. Change **childThemeName** to out client's website name.\n";
+        $txt .= "\n\n";
+        $txt .= " ";
+        $txt .= "# style.css\n";
+        $txt .= "1. Change *ChildThemeName* to the child theme name\n";
+        $txt .= "1. Change *ClientWebsite* to the client website link\n";
+        $txt .= "1. Change *ClientName* to the client website name\n";
+        $txt .= "1. Change *ParentThemeName* to parent theme name\n";
+        $txt .= "1. Change *ParentThemeFolderName* to parent theme directory name\n";
+        $txt .= "\n\n";
+        $txt .= " ";
+        $txt .= "# screenshot.sketch\n";
+        $txt .= "This is a template. Open it, change the logo to client's logo.\n";
+
+        $txt .= " \n";
+        $README_md = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/README.md";
+
+        if (file_put_contents( $README_md, $txt,  FILE_APPEND | LOCK_EX)) {
+            // chmod($README_md, 0777);
+            $results['README'] =
+                '<p><span class="dashicons dashicons-yes"></span>'
+                . esc_html__('Writing', 'ch-th-gen')
+                . ' <b>README.md</b></p>';
+            return $results;
+        } else {
+            $results['README'] =
+                '<p><span class="dashicons dashicons-dismiss"></span>'
+                . esc_html__('Error: cannot write README.md, permission denied', 'ch-th-gen') . '</p>';
+            $results['alert'] = -1;
+            return $results;
+        }
+    }
 
 	/**
 	 * Create Style.css
