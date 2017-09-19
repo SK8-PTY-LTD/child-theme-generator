@@ -295,9 +295,49 @@ class Ch_Th_Gen_Functions {
 		$results = self::create_functions_php( $new_child_theme, $results );
 		$results = self::create_screenshot_png( $new_child_theme, $results );
         $results = self::create_README_md( $new_child_theme, $results );
+        $results = self::create_theme_includes_php($new_child_theme, $results);
 		return $results;
 
 	}
+    /**
+     * Create theme-includes.php
+     *
+     * @since 		1.0.0
+     * @return 		mixed 			The settings field
+     */
+    public function create_theme_includes_php( $new_child_theme, $results ) {
+        //header content
+        $txt = "";
+        $txt .= "/*\n";
+        $txt .= "Theme Name:   " . $new_child_theme['title'] . "\n";
+        $txt .= "Description:  " . $new_child_theme['description'] . "\n";
+        $txt .= "Author:       " . $new_child_theme['author'] . "\n";
+        $txt .= "Author URL:   " . $new_child_theme['author-url'] . "\n";
+        $txt .= "Template:     " . $new_child_theme['parent'] . "\n";
+        $txt .= "Version:      " . $new_child_theme['version'] . "\n";
+
+
+
+        $theme_includes_php = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/theme_includes_php";
+
+
+
+        if (file_put_contents($theme_includes_php, $txt,  FILE_APPEND | LOCK_EX)) {
+            // chmod($theme_includes_php, 0777);
+            $results['theme'] =
+                '<p><span class="dashicons dashicons-yes"></span>'
+                . esc_html__('Writing', 'ch-th-gen')
+                . ' <b>theme_includes.php</b></p>';
+            return $results;
+        } else {
+            $results['theme'] =
+                '<p><span class="dashicons dashicons-dismiss"></span>'
+                . esc_html__('Error: cannot write theme_includes.php, permission denied', 'ch-th-gen') . '</p>';
+            $results['alert'] = -1;
+            return $results;
+        }
+
+    }
     /**
      * Create README.md
      *
