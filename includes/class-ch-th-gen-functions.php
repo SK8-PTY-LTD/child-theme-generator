@@ -44,6 +44,7 @@ class Ch_Th_Gen_Functions {
 	* @param  array $cleaned_scan
 	* @since  1.0.0
 	*/
+
 	public function child_themes_setup() {
 		$parent_themes = self::get_parent_themes();
 		$runningTheme = wp_get_theme();
@@ -126,9 +127,12 @@ class Ch_Th_Gen_Functions {
 					</tr>
                     <tr>
                         <td class="FBLabel"><?php esc_html_e('Logo:', 'ch-th-gen'); ?></td>
-                        <td class="FBInput"><img src="" ></td>
+                        <td class="FBInput">
+                            <input type="file" name="file" id="file" accept="image/*" required />
+                        </td>
                         <td class="FBDescr"><?php esc_html_e(" Upload Image", "ch-th-gen") ?></td>
                     </tr>
+
 				</table>
 				</fieldset>
 				<input type="submit" name="Submit" class="button-primary" value="<?php esc_html_e('Create new child theme', 'ch-th-gen'); ?>" />
@@ -302,28 +306,55 @@ class Ch_Th_Gen_Functions {
      */
     public function create_README_md( $new_child_theme, $results ) {
         // README.md header content
-        $txt = "";
+        $txt = "# ".$new_child_theme['title'] ." \n \n";
         $txt .= "\n";
-        $txt .= "This is a template theme we use at [SK8Tech](https://sk8.tech). This document lists out the required steps to create a custom WordPress theme for our clients.\n";
+        $txt .= "**Contributors:** jack50n9 \n\n";
+        $txt .= "**Requires at least:** WordPress 4.4 \n\n";
+        $txt .= "**Tested up to:** WordPress 4.8 \n";
+        $txt .= "**Stable tag:** 1.0 \n";
+        $txt .= "**Version:** 1.0 \n";
+        $txt .= "**License:** GPLv2 or later \n";
+        $txt .= "**License URI:** http://www.gnu.org/licenses/gpl-2.0.html \n";
+        $txt .= "**Tags:** sk8tech, web-developer, web-design, one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready \n";
+        $txt .= "\n\n";
+        $txt .= "This theme is created by SK8Tech, for ".$new_child_theme['title'] ." \n ";
+        $txt .= "## Description\n";
+        $txt .= "\n\n";
+        $txt .= "This is the long description.  No limit, and you can use Markdown (as well as in the following sections). \n ";
+        $txt .= "\n\n";
+        $txt .= "A few notes about the sections above:\n";
+        $txt .= "\n\n";
+        $txt .= "*   \"Contributors\" is a comma separated list of wp.orgusernames\n";
+        $txt .= "*   \"Tags\" is a comma separated list of tags that apply to the theme\n";
+        $txt .= "*   \"Requires at least\" is the lowest version that the plugin will work on\n";
+        $txt .= "*   \"Tested up to\" is the highest version that you've *successfully used to test the theme*. Note that it might work on
+higher versions... this is just the highest one you've verified.\n\n";
         $txt .= "\n\n";
         $txt .= " ";
-        $txt .= "# functions.php\n";
-        $txt .= "1. Change **parentThemeDirectoryName** on to our selected parent theme.\n";
-        $txt .= "1. Change **childThemeName** to out client's website name.\n";
-        $txt .= "\n\n";
-        $txt .= " ";
-        $txt .= "# style.css\n";
-        $txt .= "1. Change *ChildThemeName* to the child theme name\n";
-        $txt .= "1. Change *ClientWebsite* to the client website link\n";
-        $txt .= "1. Change *ClientName* to the client website name\n";
-        $txt .= "1. Change *ParentThemeName* to parent theme name\n";
-        $txt .= "1. Change *ParentThemeFolderName* to parent theme directory name\n";
-        $txt .= "\n\n";
-        $txt .= " ";
-        $txt .= "# screenshot.sketch\n";
-        $txt .= "This is a template. Open it, change the logo to client's logo.\n";
-
+        $txt .= "## Frequently Asked Questionsns \n";
+        $txt .= "* A question that someone might have?\n";
+        $txt .= "An answer to that question.\n";
         $txt .= " \n";
+        $txt .= "\n";
+        $txt .= "## Copyright\n\n";
+        $txt .= $new_child_theme['title'] ." WordPress Theme, Copyright 2016 WordPress.org\n\n";
+        $txt .= $new_child_theme['title'] ." is distributed under the terms of the GNU GPL \n\n";
+        $txt .= $new_child_theme['title'] ." bundles the following third-party resources:\n\n";
+        $txt .= "<!-- normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
+**License:** MIT
+Source: https://necolas.github.io/normalize.css/\n";
+        $txt .= "Font Awesome icons, Copyright Dave Gandy
+**License:** SIL Open Font License, version 1.1.
+Source: http://fontawesome.io/\n";
+        $txt .= "Bundled header image, Copyright Alvin Engler
+**License:** CC0 1.0 Universal (CC0 1.0)
+Source: https://unsplash.com/@englr?photo=bIhpiQA009k -->\n";
+        $txt .= "\n\n";
+        $txt .= "## Changelog\n\n ";
+        $txt .= "### 1.0 \n";
+        $txt .= "* Released: December 6, 2016\n\n";
+        $txt .= "Initial release\n";
+
         $README_md = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/README.md";
 
         if (file_put_contents( $README_md, $txt,  FILE_APPEND | LOCK_EX)) {
@@ -368,6 +399,7 @@ class Ch_Th_Gen_Functions {
 		$txt .= "/* ";
 		$txt .=  esc_html__('Write here your own personal stylesheet', 'ch-th-gen');
 		$txt .= " */\n";
+        $txt .= "Logo:      " . $new_child_theme['Logo'] . "\n";
 		$style_css = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/style.css";
 
 		if (file_put_contents($style_css, $txt,  FILE_APPEND | LOCK_EX)) {
