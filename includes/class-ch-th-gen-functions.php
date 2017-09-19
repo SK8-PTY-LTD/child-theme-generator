@@ -126,7 +126,7 @@ class Ch_Th_Gen_Functions {
 									<?php esc_html_e('Click here to learn more', 'ch-th-gen'); ?></a></td>
 					</tr>
                     <tr>
-                        <td class="FBLabel"><?php esc_html_e('Logo:', 'ch-th-gen'); ?></td>
+                        <td class="FBLabel"><?php esc_html_e('Logo1:', 'ch-th-gen'); ?></td>
                         <td class="FBInput">
                             <input type="file" name="file" id="file" accept="image/*" required />
                         </td>
