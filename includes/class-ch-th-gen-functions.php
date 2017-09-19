@@ -296,9 +296,10 @@ class Ch_Th_Gen_Functions {
 		$results = self::create_screenshot_png( $new_child_theme, $results );
         $results = self::create_README_md( $new_child_theme, $results );
         $results = self::create_theme_includes_php($new_child_theme, $results);
+
 		return $results;
 
-	}
+    }
     /**
      * Create theme-includes.php
      *
@@ -308,13 +309,14 @@ class Ch_Th_Gen_Functions {
     public function create_theme_includes_php( $new_child_theme, $results ) {
         //header content
         $txt = "";
-        $txt .= "/*\n";
-        $txt .= "Theme Name:   " . $new_child_theme['title'] . "\n";
-        $txt .= "Description:  " . $new_child_theme['description'] . "\n";
-        $txt .= "Author:       " . $new_child_theme['author'] . "\n";
-        $txt .= "Author URL:   " . $new_child_theme['author-url'] . "\n";
-        $txt .= "Template:     " . $new_child_theme['parent'] . "\n";
-        $txt .= "Version:      " . $new_child_theme['version'] . "\n";
+        $txt .= "\n";
+        $txt .= "//define constants\n";
+        $txt .= "define('CHILD_ROOT_DIR', get_template_directory()\n";
+        $txt .= "\n";
+        $txt .= "//include necessary files\n";
+        $txt .= "require_once CHILD_ROOT_DIR.'/includes/plugins/class-tgm-plugin-activation.php';\n";
+        $txt .= "include_once CHILD_ROOT_DIR.'/includes/plugins/plugins-activation.php';\n";
+
 
 
 
