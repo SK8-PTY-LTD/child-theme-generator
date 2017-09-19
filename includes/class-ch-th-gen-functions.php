@@ -53,7 +53,7 @@ class Ch_Th_Gen_Functions {
 		printf( esc_html__('Theme active: %1$s %2$s', 'ch-th-gen'), self::display_current_theme(), '</p><hr />');
 		printf( esc_html__('%1$s Select a parent theme from drop-down menu, then fill out the form (Note: %2$s all fields are optional) %3$s', 'ch-th-gen'), '<p>', '<u>', '</u></p>');
 		?>
-		<form method="post" action="" >
+		<form method="post" action="" enctype="multipart/form-data">
 			<input type="hidden" name="hidden_field" value="Y">
 			<fieldset>
 				<table>
@@ -141,7 +141,8 @@ class Ch_Th_Gen_Functions {
 			return $new_child_theme;
 		}
 
-		public function remove_child_theme() {
+
+    public function remove_child_theme() {
 
 			$child_themes = self::get_child_themes();
 			if ( !empty( $child_themes ) ) {
@@ -295,6 +296,7 @@ class Ch_Th_Gen_Functions {
 		$results = self::create_functions_php( $new_child_theme, $results );
 		$results = self::create_screenshot_png( $new_child_theme, $results );
         $results = self::create_README_md( $new_child_theme, $results );
+
 		return $results;
 
 	}
@@ -308,22 +310,22 @@ class Ch_Th_Gen_Functions {
         // README.md header content
         $txt = "# ".$new_child_theme['title'] ." \n \n";
         $txt .= "\n";
-        $txt .= "**Contributors:** jack50n9 \n\n";
-        $txt .= "**Requires at least:** WordPress 4.4 \n\n";
+        $txt .= "**Contributors:** jack50n9 \n";
+        $txt .= "**Requires at least:** WordPress 4.4 \n";
         $txt .= "**Tested up to:** WordPress 4.8 \n";
         $txt .= "**Stable tag:** 1.0 \n";
         $txt .= "**Version:** 1.0 \n";
         $txt .= "**License:** GPLv2 or later \n";
         $txt .= "**License URI:** http://www.gnu.org/licenses/gpl-2.0.html \n";
         $txt .= "**Tags:** sk8tech, web-developer, web-design, one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready \n";
-        $txt .= "\n\n";
+        $txt .= "\n";
         $txt .= "This theme is created by SK8Tech, for ".$new_child_theme['title'] ." \n ";
         $txt .= "## Description\n";
-        $txt .= "\n\n";
+        $txt .= "\n";
         $txt .= "This is the long description.  No limit, and you can use Markdown (as well as in the following sections). \n ";
         $txt .= "\n\n";
         $txt .= "A few notes about the sections above:\n";
-        $txt .= "\n\n";
+        $txt .= "\n";
         $txt .= "*   \"Contributors\" is a comma separated list of wp.orgusernames\n";
         $txt .= "*   \"Tags\" is a comma separated list of tags that apply to the theme\n";
         $txt .= "*   \"Requires at least\" is the lowest version that the plugin will work on\n";
@@ -337,9 +339,9 @@ higher versions... this is just the highest one you've verified.\n\n";
         $txt .= " \n";
         $txt .= "\n";
         $txt .= "## Copyright\n\n";
-        $txt .= $new_child_theme['title'] ." WordPress Theme, Copyright 2016 WordPress.org\n\n";
-        $txt .= $new_child_theme['title'] ." is distributed under the terms of the GNU GPL \n\n";
-        $txt .= $new_child_theme['title'] ." bundles the following third-party resources:\n\n";
+        $txt .= $new_child_theme['title'] ." WordPress Theme, Copyright 2016 WordPress.org\n";
+        $txt .= $new_child_theme['title'] ." is distributed under the terms of the GNU GPL \n";
+        $txt .= $new_child_theme['title'] ." bundles the following third-party resources:\n";
         $txt .= "<!-- normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
 **License:** MIT
 Source: https://necolas.github.io/normalize.css/\n";
@@ -399,7 +401,7 @@ Source: https://unsplash.com/@englr?photo=bIhpiQA009k -->\n";
 		$txt .= "/* ";
 		$txt .=  esc_html__('Write here your own personal stylesheet', 'ch-th-gen');
 		$txt .= " */\n";
-        $txt .= "Logo:      " . $new_child_theme['Logo'] . "\n";
+        $txt .= "Logo:      " . $new_child_theme['file'] . "\n";
 		$style_css = get_theme_root() . '/' . $new_child_theme['text-domain'] ."/style.css";
 
 		if (file_put_contents($style_css, $txt,  FILE_APPEND | LOCK_EX)) {
