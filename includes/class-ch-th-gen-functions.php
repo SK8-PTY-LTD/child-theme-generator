@@ -259,47 +259,48 @@ class Ch_Th_Gen_Functions {
 	 *
 	 * @since  1.0.0
 	 */
-	public function files_generation($new_child_theme, $results) {
+	public function files_generation($new_child_theme, $results)
+    {
 
-		$child_name_dir=get_theme_root() . '/' . $new_child_theme['text-domain'];
+        $child_name_dir = get_theme_root() . '/' . $new_child_theme['text-domain'];
 
-		if ( is_dir( $child_name_dir ) ) {
-			$results['folder'] = 
-			"<p><span class='dashicons dashicons-dismiss'></span>"
-			. esc_html__("Error: cannot create ", "ch-th-gen") 
-			. "<b>" . $new_child_theme['text-domain'] . " </b>" . 
-			"child theme, " 
-			. esc_html__("existing folder.", "ch-th-gen") . "</p>" . 
-			"<p>" . $child_name_dir . "</p>";
-			$results['alert'] = -1;
-			return $results;
-		}
+        if (is_dir($child_name_dir)) {
+            $results['folder'] =
+                "<p><span class='dashicons dashicons-dismiss'></span>"
+                . esc_html__("Error: cannot create ", "ch-th-gen")
+                . "<b>" . $new_child_theme['text-domain'] . " </b>" .
+                "child theme, "
+                . esc_html__("existing folder.", "ch-th-gen") . "</p>" .
+                "<p>" . $child_name_dir . "</p>";
+            $results['alert'] = -1;
+            return $results;
+        }
         // creating child folder
-		if ( wp_mkdir_p( $child_name_dir ) ) {
-			$results['folder']= 
-			'<p><span class="dashicons dashicons-yes"></span>' 
-			. esc_html__('Writing ', 'ch-th-gen') 
-			. ' <b>' . $new_child_theme['text-domain'] . '</b></p>';
-		} else {
-			$results['folder']= 
-			'<p><span class="dashicons dashicons-dismiss"></span>' 
-			. esc_html__('Error: cannot create ', 'ch-th-gen') 
-			. '<b>' . $new_child_theme['text-domain'] .'</b> '
-			. esc_html__('This folder is read-only: ', 'ch-th-gen')
-			. $child_name_dir . '</p><br />';
-			$results['alert'] = -1;
-			return $results;
-		}
+        if (wp_mkdir_p($child_name_dir)) {
+            $results['folder'] =
+                '<p><span class="dashicons dashicons-yes"></span>'
+                . esc_html__('Writing ', 'ch-th-gen')
+                . ' <b>' . $new_child_theme['text-domain'] . '</b></p>';
+        } else {
+            $results['folder'] =
+                '<p><span class="dashicons dashicons-dismiss"></span>'
+                . esc_html__('Error: cannot create ', 'ch-th-gen')
+                . '<b>' . $new_child_theme['text-domain'] . '</b> '
+                . esc_html__('This folder is read-only: ', 'ch-th-gen')
+                . $child_name_dir . '</p><br />';
+            $results['alert'] = -1;
+            return $results;
+        }
 
-		$results = self::create_style_css( $new_child_theme, $results );
-		$results = self::create_functions_php( $new_child_theme, $results );
-		$results = self::create_screenshot_png( $new_child_theme, $results );
-        $results = self::create_README_md( $new_child_theme, $results );
+        $results = self::create_style_css($new_child_theme, $results);
+        $results = self::create_functions_php($new_child_theme, $results);
+        $results = self::create_screenshot_png($new_child_theme, $results);
+        $results = self::create_README_md($new_child_theme, $results);
         $results = self::create_theme_includes_php($new_child_theme, $results);
 
-		return $results;
-
+        return $results;
     }
+
     /**
      * Create theme-includes.php
      *
